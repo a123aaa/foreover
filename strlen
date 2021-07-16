@@ -1,0 +1,13 @@
+#include<stdio.h>                         
+void Strlen(char *A)
+{
+    int t = 0;
+    for (; *A++; t++);
+     printf("%d\n",t);
+}
+int main()
+{     char AA[20];
+      gets(AA);
+      Strlen(AA);
+      return 0;
+}
