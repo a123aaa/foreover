@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+    int x, num = 0;
+    scanf("%d", &x);
+    while (x)
+    {
+        if (x % 2 == 1)
+            num++;
+        x /= 2;
+    }
+    printf("%d", num);
+    return 0;
+}
