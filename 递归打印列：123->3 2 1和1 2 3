@@ -1,0 +1,27 @@
+#include<stdio.h>
+void PI(int x)
+{     
+    if(x>9)
+{       printf("%d ",x%10);
+        PI(x/10);
+}
+    else printf("%d\n",x);
+}
+void PU(int x)
+{    
+    if(x>9)
+    {
+      PU(x/10);
+      printf("%d ",x%10);
+    }
+     else
+      printf("%d ",x);
+}
+main()
+{  int x;
+   scanf("%d",&x);
+   printf("%d->",x);
+   PI(x);
+   printf("%d->",x);
+   PU(x);
+}
