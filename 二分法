@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+float F(float x)
+{
+    return 2 * pow(x, 3) - 4 * pow(x, 2) + 3 * x - 6;        //方程
+}
+float F1(float left, float right)
+{
+    float mid;
+     do            
+     {
+        mid = (left + right)/2;                //求中点值
+        if (F(mid) == 0)                       //判断中点是否是零点位置
+            return mid;
+        else if (F(left) * F(mid) < 0)         //判断是否在左侧 
+            right = mid;
+        else                                   //否则在右侧
+            left = mid;
+     } while (fabs(F(mid)) > 1e-5);            //中点值与零点差值大于条件,则继续循环
+     return mid;
+}
+int main()
+{
+    printf("%lf\n",F1(-10,10));                //零点范围
+    return 0;
+}
