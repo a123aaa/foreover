@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+float F(float x)                             //公式
+{
+    return 2 * pow(x, 3) - 4 * pow(x, 2) + 3 * x - 6;
+}
+float xj(float left, float right)
+{
+    float mid;  
+    do
+    {  
+         mid = (left * F(right) - right * F(left)) / (F(right) - F(left));  //过两点做直线与x轴的交点作为mid值
+         if (F(left) * F(mid) < 0)                //判断零点是否在左面
+             right = mid;
+         else if (F(right) * F(mid) < 0)          //判断零点是否在右面
+             left = mid;
+         else break;                              
+    } while (fabs(F(mid)) > 1e-4);
+    return  mid;                                  //返回零点mid
+}
+int main()
+{
+    printf("%lf\n",xj(0,3));
+    return 0;
+}
