@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<ctype.h>
+void dcc(char* A)
+{
+    int count = 0;
+    while(*A)
+        if (isalpha(*A++)&&*A==' ')       //每遇到一个字母和空格就累计一次
+        count++;
+    printf("%d\n", count++);
+}
+int main()
+{
+    char AA[40];
+    gets(AA);
+    dcc(AA);
+    return 0;
+}
