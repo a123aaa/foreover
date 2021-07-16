@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void mp(int B[])
+{
+    for (int i = 0; i < 5; i++)                //(范围小于最后一个)第一趟后A[9]最大,且不再参与比较;第二趟后A[8]最大,且不再参与比较
+        for(int j=0;j<5-i;j++)                 //(范围小于最后一个且每一大轮在减小一次)  
+            if (B[j] > B[j+1])             //B[i]与后面所有数字比较，符合要求就交换；
+            {
+                int h = B[j]; B[j] = B[j+1]; B[j+1] = h;
+            }
+    for (int i = 0; i < 6; i++)
+        printf("%d ,", B[i]);
+}
+int main()
+{
+    int AA[6],i;
+    srand((unsigned int)time(NULL));
+    for (i = 0; i < 6; i++)
+    {
+        AA[i] = rand() % 100;
+        printf("%d ,",AA[i]);
+    }
+    printf("\n");
+    mp(AA);
+    return 0;
+}
