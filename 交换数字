@@ -1,8 +1,18 @@
 #include<stdio.h>
-int main()
+int main()      //方法一
 {
 	int a = 3, b = 5;
 	a = a + b;  b = a - b;  a = a - b;    
 	printf("%d,%d",a,b);
 	return 0;
+}
+
+#include<stdio.h>
+int main()     //方法二
+{
+	int a = 3, b = 5;      //a^a=0;   a^0=a;  a^b^a=b
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("%d,%d",a,b);
 }
