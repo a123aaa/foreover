@@ -1,0 +1,24 @@
+#include<stdio.h>
+void xz(int a[])
+{
+    int i, j,min,t;
+    for(i=0;i<9;i++)    //(总趟数小于总元素个数-1)第一趟后a[0]最小,并不参与后面比较,第二趟后a[1]最小,并不参与后面比较
+    {
+        min = i, t = a[i];              //备份此趟元素小标和元素大小
+        for (j = i + 1; j < 10; j++)    //找出此趟的最小值
+            if (a[min] > a[j])
+                min = j;
+        a[i] = a[min], a[min] = t;  //将找到的最小元素与此趟元素交换
+    }
+    for(i=0;i<10;i++)
+    printf("%d ",a[i]);
+}
+int main()
+{
+    int a[10] = {6,8,9,12,16,-3,90,-9,10,1};
+    for (int i = 0; i< 10; i++)
+        printf("%d ",a[i]);
+    printf("\n");
+    xz(a);
+    return 0;
+}
