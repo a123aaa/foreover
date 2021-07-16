@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void ZH(int a)
+{ 
+    int b,f=8;
+    char d[10]="0", e;
+    do
+    {
+        b = a % 16;
+        if (b < 10)   e = b + 48;
+        else          e = b + 87;
+        d[f--]=e;
+    } while (a/=16);
+    d[f--] = '0';
+        d[f] = 'X';
+    for (f; f < 10;f++)
+    printf("%c", d[f]);
+}
+int main()
+{
+    int a;
+    srand(time(NULL));
+    a = rand() % 500;
+    printf("%d\n", a);
+    ZH(a);
+}
