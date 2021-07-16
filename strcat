@@ -1,0 +1,19 @@
+#include<stdio.h>                   
+#include<string.h>
+void Strcat(char* A, char* B)
+{
+    int i = 0;
+    char C[40];
+    while (C[i++] = *A++);
+    i--;
+    while (C[i++] = *B++);
+    puts(C);
+}
+int main()
+{
+    char AA[20], BB[20];
+    gets(AA);
+    gets(BB);
+    Strcat(AA, BB);
+    return 0;
+}
