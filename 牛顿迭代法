@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+float F(float x)                          //公式
+{
+    return 3*pow(x,3)-3*pow(x,2)+x-1;                       
+} 
+float K(float x)                          //斜率
+{
+    return 9*pow(x,2)-6*x+1;
+}
+float ND(float x0)                 
+{
+    float x1=x0 - F(x0) / K(x0);         //x0点处切线与x轴交点x值
+    while (fabs(x1 - x0) > 1e-5)          //x0与x的距离足够小
+    {
+        x0 = x1;
+        x1 = x0 - F(x0) / K(x0); 
+    }
+    return x1;
+}
+int main()
+{
+    printf("%lf\n",ND(2));                 //给零点近似值
+}
