@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+	int a, b, c;
+	int num1, num2, num3;
+	printf("a,b,c=>");
+	scanf("%d%d%d",&a,&b,&c);
+	num1 = a > b ? (a > c ? a : c) : (b > c ? b : c);     //找到最大的
+	num3 = a < b ? (a < c ? a : c) : (b < c ? b : c);     //找到最小的
+	num2 =a^b^c^num1^num3;                                //用异或找中间量
+	printf("%d>%d>%d",num1,num2,num3);
+	return 0;
+}
