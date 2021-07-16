@@ -1,0 +1,13 @@
+#include<stdio.h>                          
+void Strcpy(char *B)
+{
+    char A[20];
+    for (int i = 0; A[i] = *B++; i++);
+    puts(A);
+}
+int main()
+{   char BB[20];
+    gets(BB);
+    Strcpy(BB);
+    return 0;
+}
