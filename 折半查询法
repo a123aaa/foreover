@@ -1,0 +1,25 @@
+#include<stdio.h>
+int zb(int a[10],int x)
+{ 
+    int left=0, right=9, mid;
+    while ( left<=right)            //循环条件(最左面大于等于最右面)
+    {
+        mid = (left + right) / 2;
+        if (a[mid] == x)
+            return mid;
+        else if (a[mid] > x)
+            right = mid-1;         //由于a[mid]>x,则right=mid已判断不可能,所以right=mid-1
+        else left = mid+1;
+    }
+    return 999;
+}
+int main()
+{
+    int a[10] = {0,1,2,3,4,5,6,7,8,9},x;   //数组已经排完顺序
+    for (int i = 0; i < 10; i++)
+        printf("%d ",a[i]);
+    printf("\n");
+    scanf("%d",&x);
+        printf("%d下标=>%d\n",x,zb(a, x));
+    return 0;
+}
