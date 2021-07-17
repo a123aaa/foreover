@@ -1,0 +1,29 @@
+#include<stdio.h>
+static int i = 0;
+void F(int a)
+{   
+	int t=i;
+	if (i < 30)
+	{
+		i += 2;
+		Ji(a);
+	}
+	if(t%2)
+		printf("%d ", a >> t & 1);
+	else
+	    printf(" %d", a >> t & 1);
+}
+void Wz(a)
+{
+  for(int j=31;j>=0;j--)
+	  printf("%d ", a >> j & 1);
+}
+int main()
+{
+	int a;
+	scanf("%d",&a);
+	F(a);    printf("\n");
+	i = 1;
+	F(a);    printf("\n");
+	Wz(a);    return 0;
+}
