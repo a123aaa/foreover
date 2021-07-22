@@ -1,0 +1,12 @@
+
+//#include<stdio.h>   
+//int main()
+//{   
+//	int a = 1;
+//	char* p = &a;
+//	if (*p == 1)
+//		printf("小端\n");
+//	else
+//		printf("打短\n");
+//	return 0;
+//}
