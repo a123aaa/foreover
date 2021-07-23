@@ -1,0 +1,17 @@
+#include<stdio.h>
+void A(char *x)
+{
+	printf("%s", x);
+}
+void B(int a, int b)
+{
+	printf("%d,%d\n", a, b);
+}
+int main()
+{
+	void (*p)(char*) = A;
+	void (*p1)(int, int) = B;
+	(*p)("abcd");
+	(*p1)(2,3);
+		return 0;
+}
