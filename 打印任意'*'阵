@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+	printf("打印几行(及最多一行'*'的个数)必须是奇数\n");
+	int x;
+	scanf("%d",&x);
+	for (int i = 0; i < (x + 1)/2; i++)              //打印上面
+	{
+		int h = i * 2 + 1,t = (x - h) / 2;
+		while (t--)
+			printf(" ");
+		while (h--)
+			printf("*");
+		printf("\n");
+	}
+	for (int i = 1 ;i <= (x -1) / 2; i++)            //打印下面
+	{
+		int t = i,h = x-t*2;
+		while (t--)
+			printf(" ");
+		while (h--)
+			printf("*");
+		printf("\n");
+	}
+	return 0;
+}
