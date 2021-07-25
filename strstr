@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<assert.h>
+char* Strstr( char* a, char* b)
+{
+	assert(a != NULL);  assert(b != NULL);    //保证a,b不是空指针
+	char* c = a;
+	while (*c)
+	{
+		char* i = c;    char* j = b;
+		while (*i && *j && !(*i - *j))
+		{
+			i++;   j++;
+		}
+		if (!*j)
+			return c;
+		else if (!*i)
+			return NULL;
+		else c++;
+	}
+	return NULL;
+}
+int main()
+{
+	char* a = "abbbcdfff", *b = "bcdf";
+	char* p = Strstr(a, b);
+	if (p)
+		printf("已找到->%s\n", p);
+	else
+		printf("没找到\n");
+}
