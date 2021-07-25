@@ -1,0 +1,24 @@
+#include<stdio.h>
+void my_memcpy(void* a, void* b, int sz)
+{
+	char* c = (char*)a;
+	while (sz--)
+	{
+		*((char*)a)++ = *((char*)b)++;
+	}
+	return c;
+}
+struct p
+{
+	char name[10];
+	int age;
+};
+int main()
+{
+	int a[] = { 1,2,3,4,5 };
+	int b[10];
+	struct p i[2] = { "李明",12,"肖战",30 };
+	struct p j[2];
+	my_memcpy(b,a,sizeof(a));
+	my_memcpy(j, i, sizeof(i));
+}
