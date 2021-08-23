@@ -1,29 +1,29 @@
 #include<stdio.h>
-static int i = 0;
+static int i = 31;
 void F(int a)
-{   
-	int t=i;
-	if (i < 30)
-	{
-		i += 2;
-		Ji(a);
-	}
-	if(t%2)
-		printf("%d ", a >> t & 1);
-	else
-	    printf(" %d", a >> t & 1);
-}
-void Wz(a)
 {
-  for(int j=31;j>=0;j--)
-	  printf("%d ", a >> j & 1);
+	int t = i;
+	while (t >=0)
+	{
+		if (t % 2)
+			printf("%d ", a >> t & 1);
+		else
+			printf(" %d", a >> t & 1);
+		t -= 2;
+	}
+}
+void Wz(int a)
+{
+	printf("  ");
+	for (int j = 31; j >= 0; j--)
+		printf("%d", a >> j & 1);
 }
 int main()
 {
 	int a;
-	scanf("%d",&a);
-	F(a);    printf("\n");
-	i = 1;
-	F(a);    printf("\n");
-	Wz(a);    return 0;
+	scanf("%d", &a);
+	printf("偶");   F(a);    printf("\n");
+	Wz(a);   printf("\n");   i = 30;  
+	printf("奇");   F(a);    printf("\n");
+   return 0;
 }
