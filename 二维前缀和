@@ -1,0 +1,29 @@
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+int b[601][601] = {0};
+int main()
+{
+	int n, L, r,t,all=0,input;
+	scanf("%d %d %d %d", &n, &L, &r, &t);
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			scanf("%d", &input);
+			b[i][j] = b[i - 1][j] + b[i][j - 1] - b[i - 1][j - 1] + input;       //第i行第j列前所有元素和  放在b[i][j]中
+		}
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			int l_l = max(j - r, 1), l_r = min(j + r, n);       l_l列左；l_r列右
+			int h_h = max(i - r, 1), h_l = min(i + r, n);       h_h行上；h_l行下
+			if ((l_r - l_l + 1) * (h_l - h_h + 1) * t >= b[h_l][l_r] - b[h_l][l_l - 1] - b[h_h - 1][l_r] + b[h_h - 1][l_l - 1])
+				all++;
+		}
+	}
+	printf("%d", all);
+	return 0;
+}
