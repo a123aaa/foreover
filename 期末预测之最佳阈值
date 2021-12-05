@@ -1,0 +1,44 @@
+#include<cstdio>
+#include<algorithm>
+#include<set>
+using namespace std;
+long a[100000001][2] = { 0 };
+int main()
+{
+	int m;
+	set<long>  pp;
+	scanf("%d", &m);
+	for (int i = 0; i < m; ++i)
+	{
+		long r;
+		int t;
+		scanf("%ld %d", &r,&t);
+		a[r][t]++;
+		pp.insert(r);
+	}
+	int flog = 0,t=0;
+	long num1 = 0, num2 = 0;
+	for (set<long>::iterator all = pp.begin(); all != pp.end(); ++all)
+	{
+		num2 += a[*all][1];
+	}
+	if (flog <= num2)
+	{
+		flog = num2;
+		t = (*pp.begin());
+	}
+	set<long>::iterator al = pp.begin();
+	for (set<long>::iterator it = ++pp.begin(); it!=pp.end(); ++it)
+	{
+		num1 += a[*al][0];
+		num2 -= a[*al][1];
+		al++;
+		if (flog <= num1+num2)
+		{
+			flog = num1+num2;
+			t = (*it);
+		}
+	}
+	printf("%d", t);
+	return 0;
+}
